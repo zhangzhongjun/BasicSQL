@@ -1,0 +1,22 @@
+root 根用户
+buadmin	buadmin  最小权限 仅能备份
+dbmanager dbmanager  对所有数据库的所有的权限
+useradmin useradmin 用户权限
+
+
+create user 用户名@IP地址 identified by '密码'
+	》用户只能在指定的IP上登录
+create user 用户名@'%' identified by '密码'
+
+grant 权限1，权限2 on 数据库.* to 用户名@IP地址
+	》grant create,alter,drop,insert,update,delete,select on mydb1.* to zhangsang@localhost
+   	》grant all on mydb1.* to zhangsang@localhost
+    
+revoke 权限1，权限2 on 数据库.* from 用户名@IP地址
+	》revoke create,alter,drop,insert,update,delete,select on mydb1.* from zhangsang@localhost
+   	》revoke all on mydb1.* from zhangsang@localhost
+
+show grants for 用户名@IP地址
+	》查看权限
+    
+drop user 用户名@IP地址
